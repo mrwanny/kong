@@ -75,6 +75,17 @@ for _, strategy in helpers.each_strategy() do
 
         assert.res_status(429, res)
 
+        -- counters should reset after a minute
+        ngx.sleep(2)
+
+        local res = proxy_client:get("/test", {
+            headers = {
+                ["Host"] = "localhost"
+            }
+        })
+
+        assert.res_status(200, res)
+
       end)
     end)
   end)
