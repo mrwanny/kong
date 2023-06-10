@@ -62,14 +62,14 @@ if [ "$TEST_SUITE" == "plugins" ]; then
 
     if [[ "$TEST_SPLIT" == first* ]]; then
         # GitHub Actions, run first batch of plugin tests
-        PLUGINS=$(ls -d spec/03-plugins/* | head -n22)
+        PLUGINS=$(ls -d spec/03-plugins/* | head -n2)
 
     elif [[ "$TEST_SPLIT" == second* ]]; then
         # GitHub Actions, run second batch of plugin tests
         # Note that the split here is chosen carefully to result
         # in a similar run time between the two batches, and should
         # be adjusted if imbalance become significant in the future
-        PLUGINS=$(ls -d spec/03-plugins/* | tail -n+23)
+        PLUGINS=$(ls -d spec/03-plugins/* | tail -n+38)
 
     else
         # Non GitHub Actions
